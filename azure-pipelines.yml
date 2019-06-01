@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'vs2017-win2016'
 
 variables:
   solution: '**/*.sln'
@@ -15,6 +15,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: CopyFiles@2
+  inputs:
+    contents: '_buildOutput\**'
+    targetFolder: $(build.artifactStagingDirectory)
+
 - task: PublishBuildArtifacts@1
 
 - task: NuGetCommand@2

@@ -20,7 +20,6 @@ steps:
     contents: '_buildOutput\**'
     targetFolder: $(build.artifactStagingDirectory)
 
-- task: PublishBuildArtifacts@1
 
 - task: NuGetCommand@2
   inputs:
@@ -37,3 +36,6 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+- task: PublishBuildArtifacts@1
